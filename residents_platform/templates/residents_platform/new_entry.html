@@ -1,0 +1,10 @@
+{% extends "residents_platform/base.html" %}
+{% block content %}
+  <p><a href="{% url 'residents_platform:topic' topic.id %}">{{ topic }}</a></p>
+  <p>Dodaj nowy wpis:</p>
+  <form action="{% url 'residents_platform:new_entry' topic.id %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit'>Dodaj wpis</button>
+  </form>
+{% endblock content %}
